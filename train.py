@@ -129,7 +129,7 @@ def model_init(model_name):
 
   device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
   if model_name == 'retinanet' :
-    weight_file_path = '/content/pytorch-retinanet/resnet34-333f7ec4.pth'
+    weight_file_path = '/content/retinanet/resnet34-333f7ec4.pth'
 
   total_keys = len(list(torch.load(weight_file_path).keys()))
 
