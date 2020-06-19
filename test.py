@@ -29,8 +29,9 @@ def model_init(model_name):
 
   device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
   if model_name == 'retinanet' :
-    weight_file_path = '/content/retinanet/resnet34-333f7ec4.pth'
+    #weight_file_path = '/content/retinanet/resnet34-333f7ec4.pth'
     #weight_file_path = '/content/retinanet/CP_epoch5.pth'
+    weight_file_path = '/content/retinanet/retinanet50_pretrained.pth'
 
   total_keys = len(list(torch.load(weight_file_path).keys()))
 
@@ -61,13 +62,16 @@ def model_init(model_name):
 if __name__ == '__main__':
 
     # Hyperparameters
-    val_batch_size = 1
+    val_batch_size = 8
     num_workers = 3
 
     model_name = 'retinanet'
 
+    images_folder = '/content/data/val2017'
+    test_json_file = '/content/data/test_coco_dataset.json'
+
     # Load test image folder with corresponding coco json file to test_dataset
-    dataset_val = CocoDataset('/content/data/images', '/content/data/output.json',
+    dataset_val = CocoDataset(images_folder, test_json_file,
                             transform=transforms.Compose([Normalizer(), Resizer()]))
 
     num_classes = dataset_val.num_classes()
