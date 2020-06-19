@@ -82,15 +82,19 @@ def main():
 
           cv2.rectangle(img, (x1, y1), (x2, y2), color=(0, 0, 255), thickness=2)
           #print(label_name)
-          objects['x_min'] = bbox[0]
-          objects['y_min'] = bbox[1]
-          objects['x_max'] = bbox[2]
-          objects['y_max'] = bbox[3]
+          # objects['x_min'] = bbox[0]
+          # objects['y_min'] = bbox[1]
+          # objects['x_max'] = bbox[2]
+          # objects['y_max'] = bbox[3]
+          objects['xy_top_left'] = (bbox[0], bbox[3])
+          objects['xy_bot_right'] = (bbox[2], bbox[1])
           objects['conf_level'] = scores[idxs[0][j]]
           objects['label']= label_name
 
           img_result.append(objects)
 
+        #image_path = '/content/results/' + str(idx) + '.jpg'  
+        #cv2.imwrite(image_path, img)
         results.append(img_result)
         annotated_images.append(np.array(img))
 
@@ -101,8 +105,9 @@ def model_init(model_name):
 
   device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
   if model_name == 'retinanet' :
-    weight_file_path = '/content/retinanet/resnet34-333f7ec4.pth'
+    #weight_file_path = '/content/retinanet/resnet34-333f7ec4.pth'
     #weight_file_path = '/content/retinanet/CP_epoch5.pth'
+    weight_file_path = '/content/retinanet/retinanet50_pretrained.pth'
 
   total_keys = len(list(torch.load(weight_file_path).keys()))
 
@@ -133,13 +138,16 @@ def model_init(model_name):
 if __name__ == '__main__':
 
     # Hyperparameters
-    batch_size = 1
-    num_workers = 1
+    batch_size = 8
+    num_workers = 3
 
     model_name = 'retinanet'
 
+    images_folder = '/content/data/val2017'
+    test_json_file = '/content/data/test_coco_dataset.json'
+
     # Load test image folder with corresponding coco json file to test_dataset
-    dataset_val = CocoDataset('/content/data/images', '/content/data/output.json',
+    dataset_val = CocoDataset(images_folder, test_json_file,
                             transform=transforms.Compose([Normalizer(), Resizer()]))
 
     num_classes = dataset_val.num_classes()
