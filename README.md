@@ -1,3 +1,16 @@
+### Google Colab Link for RetinaNet Implementation : https://colab.research.google.com/drive/12a9f0hKkI0mImPkVZFjEtTrIqWl_W3O2?usp=sharing
+
+### RetinaNet model pretrained weight (Trained on COCO dataset) : https://drive.google.com/file/d/1-9UHb7cDcgiPdjrbhG93ooGHBvFYCu1F/view?usp=sharing
+
+### ResNet (Backbone) pretrained weights (Trained on ImageNet Dataset)
+- ResNet18 : https://download.pytorch.org/models/resnet18-5c106cde.pth
+- ResNet34  : https://download.pytorch.org/models/resnet34-333f7ec4.pth
+- ResNet50 : https://download.pytorch.org/models/resnet50-19c8e357.pth
+- ResNet101 : https://download.pytorch.org/models/resnet101-5d3b4d8f.pth
+- ResNet152 : https://download.pytorch.org/models/resnet152-b121ed2d.pth
+
+
+
 # pytorch-retinanet
 
 ![img3](https://github.com/yhenon/pytorch-retinanet/blob/master/images/3.jpg)
