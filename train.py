@@ -129,7 +129,8 @@ def model_init(model_name):
 
   device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
   if model_name == 'retinanet' :
-    weight_file_path = '/content/retinanet/resnet34-333f7ec4.pth'
+    #weight_file_path = '/content/retinanet/resnet34-333f7ec4.pth'
+    weight_file_path = '/content/retinanet/retinanet50_pretrained.pth'
 
   total_keys = len(list(torch.load(weight_file_path).keys()))
 
@@ -160,8 +161,8 @@ def model_init(model_name):
 if __name__ == '__main__':
 
     # Hyperparameters
-    train_batch_size = 2
-    val_batch_size = 1
+    train_batch_size = 64
+    val_batch_size = 16
     num_workers = 3
     lr=1e-5
     patience=3
@@ -170,16 +171,20 @@ if __name__ == '__main__':
 
     model_name = 'retinanet'
 
-    epochs = 5
+    epochs = 10
 
     # Load train and validation dataset (for sake of example i have used same but use different dataset)
     # Load train image folder and corresponding coco json file to train dataset
     # Load validation image folder and corresponding json file to validation dataset
 
-    dataset_train = CocoDataset('/content/data/images', '/content/data/output.json' ,
+    images_folder = '/content/data/val2017'
+    train_json_file = '/content/data/train_coco_dataset.json'
+    val_json_file = '/content/data/val_coco_dataset.json'
+
+    dataset_train = CocoDataset(images_folder, train_json_file,
                             transform=transforms.Compose([Normalizer(), Augmenter(), Resizer()]))
 
-    dataset_val = CocoDataset('/content/data/images', '/content/data/output.json',
+    dataset_val = CocoDataset(images_folder, val_json_file,
                             transform=transforms.Compose([Normalizer(), Resizer()])) 
  
     num_classes = dataset_train.num_classes()
