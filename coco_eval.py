@@ -60,18 +60,18 @@ def evaluate_coco(dataset, model, threshold=0.05):
             image_ids.append(dataset.image_ids[index])
 
             # print progress
-            print('{}/{}'.format(index, len(dataset)), end='\r')
+            #print('{}/{}'.format(index, len(dataset)), end='\r')
 
         if not len(results):
             print('results are empty')
             return
 
         # write output
-        json.dump(results, open('validation_bbox_results.json', 'w'), indent=4)
+        #json.dump(results, open('validation_bbox_results.json', 'w'), indent=4)
 
         # load results in COCO evaluation tool
         coco_true = dataset.coco
-        coco_pred = coco_true.loadRes('validation_bbox_results.json')
+        coco_pred = coco_true.loadRes(results)
 
         # run COCO evaluation
         coco_eval = COCOeval(coco_true, coco_pred, 'bbox')
