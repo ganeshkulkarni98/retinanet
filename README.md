@@ -56,13 +56,13 @@ python train.py
 ## Pre-trained current model
 
 A pre-trained model is available at: 
-- https://drive.google.com/open?id=1yLmjq3JtXi841yXWBxst0coAgR26MNBS (this is a pytorch state dict)
+- https://drive.google.com/file/d/1-9UHb7cDcgiPdjrbhG93ooGHBvFYCu1F/view?usp=sharing
 
 The state dict model can be loaded using:
 
 ```
-retinanet = model.resnet50(num_classes=dataset_train.num_classes())
-retinanet.load_state_dict(torch.load(PATH_TO_WEIGHTS))
+retinanet = model.resnet50(num_classes=num_classes, pretrained=False)
+retinanet.load_state_dict(torch.load(weight_file_path, map_location=device), strict=False) # Initialisng Model with loaded weights
 ```
 ## Pre-trained backbone model of Retinanet
 
