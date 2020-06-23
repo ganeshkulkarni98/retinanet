@@ -37,11 +37,15 @@ apt-get install tk-dev python-tk
 	
 ```
 pip install pandas
-pip install pycocotools
 pip install opencv-python
 pip install requests
 
-pip install cython
+cython==0.29.17
+pillow==7.0.0
+torch==1.5.0+cu101
+torchvision==0.6.0+cu101
+numpy==1.17.0
+
 pip install -U 'git+https://github.com/cocodataset/cocoapi.git#subdirectory=PythonAPI'
 ```
 
