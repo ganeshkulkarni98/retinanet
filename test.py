@@ -22,7 +22,7 @@ def main():
     retinanet.eval()
     retinanet.module.freeze_bn()
 
-    coco_eval.evaluate_coco(dataset_val, retinanet)
+    coco_eval.evaluate_coco(dataset_val, retinanet, threshold=0.05)
 
 
 def model_init(model_name):
@@ -64,6 +64,7 @@ if __name__ == '__main__':
     # Hyperparameters
     val_batch_size = 8
     num_workers = 3
+    threshold=0.05
 
     model_name = 'retinanet'
 
