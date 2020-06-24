@@ -85,7 +85,7 @@ def main():
 
         print('Evaluating dataset')
 
-        coco_eval.evaluate_coco(dataset_val, retinanet)
+        coco_eval.evaluate_coco(dataset_val, retinanet, threshold)
 
         scheduler.step(np.mean(epoch_loss))
 
@@ -168,6 +168,7 @@ if __name__ == '__main__':
     patience=3
     verbose=True
     maxlen=500
+    threshold=0.05
 
     model_name = 'retinanet'
 
