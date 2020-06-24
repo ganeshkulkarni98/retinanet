@@ -161,8 +161,8 @@ def model_init(model_name):
 if __name__ == '__main__':
 
     # Hyperparameters
-    train_batch_size = 64
-    val_batch_size = 16
+    train_batch_size = 8
+    val_batch_size = 4
     num_workers = 3
     lr=1e-5
     patience=3
