@@ -96,9 +96,9 @@ def main():
 
           img_result.append(objects)
 
-        # save image and see results (create new folder named results and add images)
-        image_path = '/content/results/' + str(idx) + '.jpg'  
-        cv2.imwrite(image_path, img)
+        # # save image and see results (create new folder named results and add images)
+        # image_path = '/content/results/' + str(idx) + '.jpg'  
+        # cv2.imwrite(image_path, img)
         results.append(img_result)
         annotated_images.append(np.array(img))
         idx += 1
