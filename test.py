@@ -62,7 +62,7 @@ def model_init(model_name):
 if __name__ == '__main__':
 
     # Hyperparameters
-    val_batch_size = 8
+    val_batch_size = 4
     num_workers = 3
     threshold=0.05
 
