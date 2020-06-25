@@ -89,9 +89,9 @@ def main():
 
           cv2.rectangle(img, (x1, y1), (x2, y2), color=(0, 0, 255), thickness=2)
 
-          objects['xy_top_left'] = (bbox[0], bbox[3])
-          objects['xy_bot_right'] = (bbox[2], bbox[1])
-          objects['conf_level'] = scores[idxs[0][j]]
+          objects['xy_top_left'] = (bbox[0].item(), bbox[3].item())
+          objects['xy_bot_right'] = (bbox[2].item(), bbox[1].item())
+          objects['conf_level'] = scores[idxs[0][j]].item()
           objects['label']= label_name
 
           img_result.append(objects)
