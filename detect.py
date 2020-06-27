@@ -64,7 +64,7 @@ def main():
           scores, classification, transformed_anchors = retinanet(image.unsqueeze(0).float())
         print('Elapsed time for {} image: {}'.format(idx, time.time()-st))
 
-        idxs = np.where(scores.cpu()>0.5)
+        idxs = np.where(scores.cpu()>threshold)
 
         # unnormalize image
         img = np.array(255 * unnormalize(image.unsqueeze(0)[0, :, :, :])).copy()
@@ -210,6 +210,7 @@ def unnormalize(tensor):
 
 if __name__ == '__main__':
 
+    threshold=0.5
     model_name = 'retinanet'
 
     images_folder = '/content/data/test_images'
