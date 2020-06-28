@@ -1,4 +1,9 @@
-### Google Colab Link for RetinaNet Implementation : https://colab.research.google.com/drive/12a9f0hKkI0mImPkVZFjEtTrIqWl_W3O2?usp=sharing
+### Google Colab Notebook :
+
+• RetinaNet on Partial COCO dataset: https://colab.research.google.com/drive/1oHk1TfBp8McGSihw1oZry13jcVrHS2k2?usp=sharing 
+
+• RetinaNet on Fruit dataset (Custom Dataset) : https://colab.research.google.com/drive/1Tno5eHoXVkR_QSw3NbOxFj9slg3xy-0h?usp=sharing 
+
 
 ### RetinaNet model pretrained weight (Trained on COCO dataset) : https://drive.google.com/file/d/1-9UHb7cDcgiPdjrbhG93ooGHBvFYCu1F/view?usp=sharing
 
